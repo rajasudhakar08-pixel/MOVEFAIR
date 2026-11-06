@@ -1,0 +1,665 @@
+<!DOCTYPE html><html lang="en" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MOVEFAIR - Smarter Mobility for Chennai</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<!-- Google Fonts: Manrope, Inter & IBM Plex Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration matching Design System Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#005b47",
+            "primary-container": "#28745e",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#a7f2d6",
+            "secondary": "#386477",
+            "secondary-container": "#bae6fd",
+            "on-secondary-container": "#3d687b",
+            "surface": "#f2fcf2",
+            "surface-container": "#e6f1e7",
+            "surface-container-high": "#e1ebe1",
+            "surface-container-low": "#ecf6ed",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#29332c",
+            "on-surface": "#151e18",
+            "on-surface-variant": "#3f4944",
+            "outline": "#6f7974",
+            "outline-variant": "#bec9c3",
+            "tertiary": "#245848",
+            "tertiary-fixed": "#b7eed8",
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            heading: ['"Manrope"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-heading {
+      font-family: 'Manrope', sans-serif;
+    }
+    .font-mono-clock {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    /* Glass dock effects */
+    .glass-dock-pill {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.35);
+    }
+    .glass-chip {
+      background: rgba(12, 24, 18, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    /* Custom canvas styling */
+    #traffic-canvas {
+      pointer-events: none;
+    }
+    .wet-road-reflection {
+      box-shadow: inset 0 0 120px rgba(45, 120, 200, 0.25);
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type">
+</head>
+<body class="bg-[#05110d] text-slate-800 antialiased h-screen flex flex-col overflow-hidden select-none">
+<!-- BEGIN: Workspace Structure -->
+<div class="flex-1 flex overflow-hidden">
+<!-- BEGIN: Central Main Stage (Kathipara Live Simulation Experience) -->
+<main class="flex-1 overflow-hidden flex flex-col" data-purpose="kathipara-interactive-hero-viewport">
+<div class="flex flex-col w-full h-full relative overflow-hidden shadow-2xl bg-[#081510]" id="hero-backdrop">
+<!-- Background Images: High Fidelity Aerial Photography for Kathipara -->
+<!-- Midnight / Night full-bleed high resolution photograph -->
+<img alt="Kathipara Junction cloverleaf flyover in Chennai illuminated at midnight" class="absolute inset-0 w-full h-full object-cover object-center z-0 transition-opacity duration-700 select-none pointer-events-none opacity-100" id="bg-night" src="https://lh3.googleusercontent.com/aida/AEtjO1Wr2kQKzpmXeYlwvyHxWhoTizQgXXONS9LfbSagyHElvxB8CZ3O04iqGHvcG2Bzm6T2KW82yC-6o2AH9AGxOpvyaIQBgGiGtUXIEEzZ-o1sTfRdooX_KfIac7RukZ8FaPwu0I6WdRJUK7gqaE4pK5fG6xqp1JLJn3E3-Vt5Y_xDRkvH3TvdL_MHe2qqeCR7hp5AMdFsJ1D8_wx5BZTIAefIY6dUMjmeW2z1kA26BPrfcA" style="opacity: 1; filter: none;">
+<!-- Dusk twilight full-bleed high resolution photograph -->
+<img alt="Kathipara Junction cloverleaf flyover during sunset twilight dusk" class="absolute inset-0 w-full h-full object-cover object-center z-0 transition-opacity duration-700 select-none pointer-events-none opacity-0" id="bg-dusk" src="https://lh3.googleusercontent.com/aida/AEtjO1WGYZ0dGMXVGoRDeegGmHrPJ7rPb22uh2_4wAB__2gCD51mwelFaeedIGIGuJZNkyaRVS9P8qqGj24viR_RXjOoDrkx8kAtJ-8iEeQQwbAqqByW8Fgw5yinIPr2oEz7I62MW2J9SzhBxpDaxrZOyW9BxTES4s9Vt0Y3z2D2L4swq-Ew8Dz7b1qczJRQsqBAKlYVwOzmeRb9HOE_degT1MdKmJkvKhceDXDOFjYoLy5KNw" style="opacity: 0;">
+<!-- Dynamic Ambient Lighting Overlays for Time Modes (subtle, high transparency to preserve crisp photography) -->
+<div class="absolute inset-0 transition-all duration-700 pointer-events-none z-[1]" id="mode-tint-overlay" style="background: radial-gradient(circle, rgba(0, 91, 71, 0.12), transparent 75%);"></div>
+<!-- Legibility scrims balanced to ensure text readability without dimming the brilliant cloverleaf roads -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35 pointer-events-none z-[2]"></div>
+<div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-black/45 via-black/15 to-transparent pointer-events-none z-[2]"></div>
+<!-- Wet road reflection overlay for rain mode -->
+<div class="absolute inset-0 transition-opacity duration-500 pointer-events-none z-[3] opacity-0 wet-road-reflection" id="wet-road-overlay"></div>
+<!-- Dynamic Traffic Flow Particle Simulation Canvas -->
+<canvas class="absolute inset-0 w-full h-full z-10" height="1024" id="traffic-canvas" width="1280"></canvas>
+<!-- Foreground Interactive Overlay Content -->
+<div class="relative z-20 flex flex-col justify-between h-full p-8 text-white">
+<!-- Top Header Overlay Row inside viewport -->
+<div class="flex items-center justify-between">
+<!-- Left: MOVEFAIR Brand Mark on Stage -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 drop-shadow-md">
+<span class="material-symbols-outlined text-2xl text-emerald-400" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-heading font-extrabold text-xl tracking-tight text-white drop-shadow whitespace-nowrap">MOVEFAIR</span>
+</div>
+<div class="glass-chip px-3 py-1 rounded-full text-xs font-medium text-emerald-300 hidden sm:flex items-center gap-1.5 shadow-sm whitespace-nowrap" id="grid-status-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" id="live-indicator-dot"></span>
+<span id="grid-status-text" class="">Live Grid Feed</span>
+</div>
+</div>
+<!-- Right: Weather + User Node Status -->
+<div class="flex items-center gap-3">
+<div class="glass-chip px-3.5 py-1.5 rounded-full flex items-center gap-2 text-xs font-medium shadow-sm transition-all" id="weather-chip">
+<span id="weather-icon" class="">🌙</span>
+<span class="font-semibold text-white" id="weather-temp">26°C</span>
+<span class="text-slate-300" id="weather-label">Clear</span>
+<span class="text-slate-400">· Chennai</span>
+</div>
+<!-- Live Clock Sync Button -->
+<button aria-label="Sync with live IST clock" class="glass-chip px-2.5 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-medium text-white bg-emerald-600 transition shadow-sm" id="btn-sync-realtime" title="Synced with Real-time Clock"><span class="material-symbols-outlined text-xs">schedule</span><span class="hidden md:inline text-[11px]">Live IST Synced</span></button>
+<div class="w-8 h-8 rounded-full glass-chip flex items-center justify-center text-white/90">
+<i class="fa-solid fa-user text-xs"></i>
+</div>
+</div>
+</div>
+<!-- Center Stage: Commuter Salutation & Live IST Digital Clock -->
+<div class="my-auto max-w-2xl py-2 flex flex-col items-start space-y-2">
+<!-- Salutation Headline & Subtitle -->
+<h1 class="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
+            Welcome back, Ananya!
+          </h1>
+<p class="text-base text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            Explore smarter ways to move across Chennai
+          </p>
+<!-- Monumental Real-Time IST Digital Clock Display -->
+<div class="pt-3 flex flex-col items-start">
+<div class="flex items-baseline gap-3">
+<span class="font-mono-clock text-7xl sm:text-8xl font-bold tracking-tight text-white drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)]" id="live-ist-clock">12:00</span>
+<span class="font-mono-clock text-3xl font-bold text-emerald-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]" id="live-ist-ampm">AM</span>
+</div>
+<div class="mt-2 flex items-center gap-2.5 font-mono text-sm text-slate-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+<span class="font-medium" id="live-ist-date">IST · Fri 6 Nov</span>
+<span class="text-emerald-400 font-bold">•</span>
+<span class="text-emerald-300 font-semibold" id="flow-status-text">Light Flow Active</span>
+</div>
+</div>
+</div>
+<!-- Bottom Zone: Quick Action Dock & Simulation Controls -->
+<div class="space-y-4 pt-4">
+<!-- Floating Quick Action Dock -->
+<div class="w-full flex items-center justify-center">
+<div class="flex flex-wrap sm:flex-nowrap items-center justify-center gap-3 p-2.5 rounded-2xl glass-chip shadow-2xl border border-white/20">
+<!-- [Primary emerald green pill] "Open Mobility Explorer →" -->
+<a class="flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#005b47] hover:bg-[#004737] text-white font-medium text-sm transition-all duration-200 shadow-md group whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-semibold tracking-wide">Open Mobility Explorer</span>
+<span class="transition-transform group-hover:translate-x-1">→</span>
+</a>
+<!-- [Translucent frosted white pill] "Plan a Journey" -->
+<a class="glass-dock-pill flex items-center gap-2 px-5 py-3 rounded-xl text-slate-800 hover:text-slate-900 font-medium text-sm transition-all duration-200 hover:scale-[1.02] whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-lg text-emerald-800" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+<span class="font-semibold">Plan a Journey</span>
+</a>
+<!-- [Translucent frosted white pill] "Saved Routes" -->
+<a class="glass-dock-pill flex items-center gap-2 px-5 py-3 rounded-xl text-slate-800 hover:text-slate-900 font-medium text-sm transition-all duration-200 hover:scale-[1.02] whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-lg text-emerald-800">bookmark</span>
+<span class="font-semibold">Saved Routes</span>
+</a>
+<!-- [Translucent frosted white pill] "Commute Insights" -->
+<a class="glass-dock-pill flex items-center gap-2 px-5 py-3 rounded-xl text-slate-800 hover:text-slate-900 font-medium text-sm transition-all duration-200 hover:scale-[1.02] whitespace-nowrap" href="#">
+<span class="material-symbols-outlined text-lg text-emerald-800">bar_chart</span>
+<span class="font-semibold">Commute Insights</span>
+</a>
+</div>
+</div>
+<!-- Bottom Control Bar: Location Geotag, Time-of-day switchers & Simulation State -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-2 text-xs">
+<!-- Left: Location Geotag & Time-aware tag -->
+<div class="flex items-center gap-3 text-slate-300">
+<div class="flex items-center gap-1.5 font-medium text-white drop-shadow">
+<span class="material-symbols-outlined text-base text-emerald-400" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-semibold">Kathipara Junction, Chennai</span>
+</div>
+<span class="text-slate-500">•</span>
+<span class="text-slate-200 hidden sm:inline drop-shadow" id="footer-sim-status">Time-aware simulation · Weather: 26°C Clear · Asia/Kolkata</span><span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping ml-1" title="Live Clock Running"></span>
+</div>
+<!-- Right: Time-of-day switcher tabs & Playback Toggle -->
+<div class="flex items-center gap-3">
+<!-- Switcher Tabs -->
+<div class="flex items-center gap-1 p-1 rounded-xl glass-chip">
+<button class="sim-tab px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition-colors" data-mode="dawn" type="button">Dawn 06:00</button>
+<button class="sim-tab px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition-colors" data-mode="midday" type="button">Midday 12:00</button>
+<button class="sim-tab px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition-colors" data-mode="dusk" type="button">Dusk 18:42</button>
+<button class="sim-tab active px-2.5 py-1 rounded-lg bg-[#005b47] text-white font-semibold shadow-xs" data-mode="night" type="button">Night 00:00</button>
+<button class="px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition-colors flex items-center gap-1 border-l border-white/20 ml-0.5 pl-2" id="rain-toggle" type="button">
+<span class="material-symbols-outlined text-xs">rainy</span>
+<span class="hidden sm:inline">Rain</span>
+</button>
+</div>
+<!-- Carousel Indicators & Pause/Play Control -->
+<div class="flex items-center gap-2 glass-chip px-2.5 py-1 rounded-xl">
+<div class="flex items-center gap-1.5" id="carousel-indicators">
+<span class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer transition-all" data-index="0" title="Dawn"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer transition-all" data-index="1" title="Midday"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer transition-all" data-index="2" title="Dusk"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white cursor-pointer transition-all scale-125" data-index="3" title="Night"></span>
+</div>
+<button aria-label="Toggle simulation flow" class="ml-1 w-6 h-6 flex items-center justify-center text-white/90 hover:text-white hover:scale-110 transition" id="sim-play-pause">
+<i class="fa-solid fa-pause text-xs" id="sim-play-icon"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- END: Central Main Stage -->
+</div>
+<!-- END: Workspace Structure -->
+<!-- BEGIN: Dynamic Simulation & Clock Scripts -->
+<script>
+  (function initDashboardExperience() {
+    // 1. Elements
+    const clockEl = document.getElementById('live-ist-clock');
+    const ampmEl = document.getElementById('live-ist-ampm');
+    const dateEl = document.getElementById('live-ist-date');
+    const flowStatusEl = document.getElementById('flow-status-text');
+    const footerSimStatusEl = document.getElementById('footer-sim-status');
+    const weatherIconEl = document.getElementById('weather-icon');
+    const weatherTempEl = document.getElementById('weather-temp');
+    const weatherLabelEl = document.getElementById('weather-label');
+    const bgNight = document.getElementById('bg-night');
+    const bgDusk = document.getElementById('bg-dusk');
+    const modeTintOverlay = document.getElementById('mode-tint-overlay');
+    const wetRoadOverlay = document.getElementById('wet-road-overlay');
+    const simTabs = document.querySelectorAll('.sim-tab');
+    const carouselDots = document.querySelectorAll('#carousel-indicators span');
+    const rainToggle = document.getElementById('rain-toggle');
+    const playPauseBtn = document.getElementById('sim-play-pause');
+    const playIcon = document.getElementById('sim-play-icon');
+    const btnSyncRealtime = document.getElementById('btn-sync-realtime');
+
+    let currentMode = 'night';
+    let isSimulating = true;
+    let isRaining = false;
+    let isRealtimeSynced = false;
+    let autoCycleTimer = null;
+    const MODES = ['dawn', 'midday', 'dusk', 'night'];
+
+    // Simulation Profiles matching high fidelity dayparts
+    const profiles = {
+      dawn: {
+        time: '06:00',
+        ampm: 'AM',
+        flowText: 'Dawn Flow Building',
+        weatherIcon: '🌅',
+        temp: '24°C',
+        weatherDesc: 'Morning Breeze',
+        statusDesc: 'Dawn Flow Building · Weather: 24°C Morning Breeze',
+        footerInfo: 'Time-aware simulation · Weather: 24°C Morning Breeze · Asia/Kolkata',
+        trafficDensityMultiplier: 0.65,
+        overlayStyle: 'background: radial-gradient(circle at 65% 35%, rgba(255, 175, 90, 0.22), rgba(60, 120, 180, 0.15) 50%, rgba(8, 24, 18, 0.25));',
+        duskFilter: 'brightness(1.12) saturate(1.18) hue-rotate(-15deg)',
+        useDuskBg: true
+      },
+      midday: {
+        time: '12:00',
+        ampm: 'PM',
+        flowText: 'Regular Flow Active',
+        weatherIcon: '☀️',
+        temp: '32°C',
+        weatherDesc: 'Sunny',
+        statusDesc: 'Regular Flow Active · Weather: 32°C Sunny',
+        footerInfo: 'Time-aware simulation · Weather: 32°C Sunny · Asia/Kolkata',
+        trafficDensityMultiplier: 1.0,
+        overlayStyle: 'background: radial-gradient(circle at 50% 15%, rgba(255, 235, 170, 0.18), rgba(90, 170, 220, 0.10) 60%, rgba(5, 20, 15, 0.20));',
+        duskFilter: 'brightness(1.22) saturate(1.15) contrast(1.05) hue-rotate(-20deg)',
+        useDuskBg: true
+      },
+      dusk: {
+        time: '06:42',
+        ampm: 'PM',
+        flowText: 'Peak Flow Active',
+        weatherIcon: '🌆',
+        temp: '28°C',
+        weatherDesc: 'Clear',
+        statusDesc: 'Peak Flow Active · Weather: 28°C Clear',
+        footerInfo: 'Time-aware simulation · Weather: 28°C Clear · Asia/Kolkata',
+        trafficDensityMultiplier: 1.45,
+        overlayStyle: 'background: radial-gradient(circle at 75% 25%, rgba(255, 120, 60, 0.18), rgba(130, 50, 140, 0.12) 55%, transparent 80%);',
+        duskFilter: 'none',
+        useDuskBg: true
+      },
+      night: {
+        time: '12:00',
+        ampm: 'AM',
+        flowText: 'Light Flow Active',
+        weatherIcon: '🌙',
+        temp: '26°C',
+        weatherDesc: 'Clear',
+        statusDesc: 'Light Flow Active · Weather: 26°C Clear',
+        footerInfo: 'Time-aware simulation · Weather: 26°C Clear · Asia/Kolkata',
+        trafficDensityMultiplier: 0.85,
+        overlayStyle: 'background: radial-gradient(circle at 50% 50%, rgba(0, 91, 71, 0.12), transparent 75%);',
+        nightFilter: 'none',
+        useDuskBg: false
+      }
+    };
+
+    function applyMode(modeKey) {
+      currentMode = modeKey;
+      const p = profiles[modeKey];
+      if (!p) return;
+
+      // Update switcher buttons UI
+      simTabs.forEach(t => {
+        if (t.getAttribute('data-mode') === modeKey) {
+          t.classList.add('bg-[#005b47]', 'text-white', 'font-semibold', 'shadow-xs');
+          t.classList.remove('text-slate-300');
+        } else {
+          t.classList.remove('bg-[#005b47]', 'text-white', 'font-semibold', 'shadow-xs');
+          t.classList.add('text-slate-300');
+        }
+      });
+
+      // Update carousel dots
+      const idx = MODES.indexOf(modeKey);
+      carouselDots.forEach((dot, i) => {
+        if (i === idx) {
+          dot.className = 'w-1.5 h-1.5 rounded-full bg-white cursor-pointer transition-all scale-125';
+        } else {
+          dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer transition-all';
+        }
+      });
+
+      // Update background imagery & lighting layers cleanly
+      if (p.useDuskBg) {
+        bgDusk.style.opacity = '1';
+        bgNight.style.opacity = '0';
+        bgDusk.style.filter = p.duskFilter || 'none';
+      } else {
+        bgNight.style.opacity = '1';
+        bgDusk.style.opacity = '0';
+        bgNight.style.filter = p.nightFilter || 'none';
+      }
+      modeTintOverlay.style.cssText = p.overlayStyle;
+
+      // Update Clock Readout
+      if (!isRealtimeSynced) {
+        if (clockEl) clockEl.textContent = p.time;
+        if (ampmEl) ampmEl.textContent = p.ampm;
+      }
+
+      // Update Statuses
+      if (flowStatusEl) flowStatusEl.textContent = p.flowText;
+      updateWeatherDisplay(p);
+    }
+
+    function updateWeatherDisplay(p) {
+      if (isRaining) {
+        if (weatherIconEl) weatherIconEl.textContent = '🌧️';
+        if (weatherTempEl) weatherTempEl.textContent = '25°C';
+        if (weatherLabelEl) weatherLabelEl.textContent = 'Rain';
+        if (footerSimStatusEl) footerSimStatusEl.textContent = `Time-aware simulation · Weather: 25°C Rain (Active Drizzle) · Asia/Kolkata`;
+      } else {
+        if (weatherIconEl) weatherIconEl.textContent = p.weatherIcon;
+        if (weatherTempEl) weatherTempEl.textContent = p.temp;
+        if (weatherLabelEl) weatherLabelEl.textContent = p.weatherDesc;
+        if (footerSimStatusEl) footerSimStatusEl.textContent = p.footerInfo;
+      }
+    }
+
+    // Switcher click handlers
+    simTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        isRealtimeSynced = false;
+        if (btnSyncRealtime) btnSyncRealtime.classList.remove('bg-emerald-600', 'text-white');
+        applyMode(tab.getAttribute('data-mode'));
+      });
+    });
+
+    // Indicator dots click handlers
+    carouselDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        isRealtimeSynced = false;
+        if (btnSyncRealtime) btnSyncRealtime.classList.remove('bg-emerald-600', 'text-white');
+        applyMode(MODES[index]);
+      });
+    });
+
+    // Rain toggle handler
+    if (rainToggle) {
+      rainToggle.addEventListener('click', () => {
+        isRaining = !isRaining;
+        rainToggle.classList.toggle('text-sky-300', isRaining);
+        rainToggle.classList.toggle('bg-sky-950/70', isRaining);
+        rainToggle.classList.toggle('border-sky-400/50', isRaining);
+        if (wetRoadOverlay) wetRoadOverlay.style.opacity = isRaining ? '0.5' : '0';
+        updateWeatherDisplay(profiles[currentMode]);
+      });
+    }
+
+    // Live Real-Time IST Sync Toggle
+    function updateLiveISTTime() {
+      const now = new Date();
+      // Calculate IST time offset (+05:30)
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istDate = new Date(utc + (3600000 * 5.5));
+
+      let hours = istDate.getHours();
+      const mins = istDate.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      const timeStr = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+
+      if (clockEl) clockEl.textContent = timeStr;
+      if (ampmEl) ampmEl.textContent = ampm;
+
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      if (dateEl) {
+        dateEl.textContent = `IST · ${days[istDate.getDay()]} ${istDate.getDate()} ${months[istDate.getMonth()]}`;
+      }
+    }
+
+    if (btnSyncRealtime) {
+      btnSyncRealtime.addEventListener('click', () => {
+        isRealtimeSynced = !isRealtimeSynced;
+        if (isRealtimeSynced) {
+          btnSyncRealtime.classList.add('bg-emerald-600', 'text-white');
+          btnSyncRealtime.classList.remove('text-slate-300');
+          updateLiveISTTime();
+
+          // Sync active preset mode according to IST current hour
+          const now = new Date();
+          const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+          const istHour = new Date(utc + (3600000 * 5.5)).getHours();
+          if (istHour >= 5 && istHour < 10) applyMode('dawn');
+          else if (istHour >= 10 && istHour < 16) applyMode('midday');
+          else if (istHour >= 16 && istHour < 20) applyMode('dusk');
+          else applyMode('night');
+        } else {
+          btnSyncRealtime.classList.remove('bg-emerald-600', 'text-white');
+          btnSyncRealtime.classList.add('text-slate-300');
+          applyMode(currentMode);
+        }
+      });
+    }
+
+    setInterval(() => {
+      if (isRealtimeSynced) updateLiveISTTime();
+    }, 1000);
+
+    // Play / Pause Simulation
+    if (playPauseBtn && playIcon) {
+      playPauseBtn.addEventListener('click', () => {
+        isSimulating = !isSimulating;
+        playIcon.className = isSimulating ? 'fa-solid fa-pause text-xs' : 'fa-solid fa-play text-xs';
+
+        if (isSimulating) {
+          if (!autoCycleTimer) {
+            autoCycleTimer = setInterval(() => {
+              if (isSimulating && !isRealtimeSynced) {
+                const nextIdx = (MODES.indexOf(currentMode) + 1) % MODES.length;
+                applyMode(MODES[nextIdx]);
+              }
+            }, 12000);
+          }
+        } else {
+          clearInterval(autoCycleTimer);
+          autoCycleTimer = null;
+        }
+      });
+    }
+
+    // 2. Traffic Flow Particle Canvas Simulation aligned with Kathipara midnight flyovers
+    const canvas = document.getElementById('traffic-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = canvas.parentElement.clientWidth;
+      height = canvas.height = canvas.parentElement.clientHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Exact spline curves mapped to Kathipara aerial geometry
+    const ramps = [
+      // Main cross viaduct (top-left to bottom-right)
+      [
+        {x: 0.18, y: 0.32}, {x: 0.35, y: 0.44}, {x: 0.52, y: 0.53}, 
+        {x: 0.72, y: 0.65}, {x: 0.96, y: 0.79}
+      ],
+      // Transverse diagonal viaduct (bottom-left to top-right metro alignment)
+      [
+        {x: 0.05, y: 0.88}, {x: 0.28, y: 0.71}, {x: 0.48, y: 0.54}, 
+        {x: 0.66, y: 0.42}, {x: 0.90, y: 0.24}
+      ],
+      // Bottom Central Circular Loop
+      [
+        {x: 0.37, y: 0.66}, {x: 0.44, y: 0.76}, {x: 0.55, y: 0.75}, 
+        {x: 0.60, y: 0.64}, {x: 0.50, y: 0.56}, {x: 0.40, y: 0.60}
+      ],
+      // Left Cloverleaf Loop
+      [
+        {x: 0.23, y: 0.52}, {x: 0.27, y: 0.58}, {x: 0.38, y: 0.56}, 
+        {x: 0.42, y: 0.48}, {x: 0.34, y: 0.45}, {x: 0.24, y: 0.48}
+      ],
+      // Right Cloverleaf Loop
+      [
+        {x: 0.58, y: 0.50}, {x: 0.65, y: 0.47}, {x: 0.76, y: 0.52}, 
+        {x: 0.76, y: 0.59}, {x: 0.64, y: 0.60}, {x: 0.58, y: 0.53}
+      ],
+      // Top Inner Cloverleaf Loop
+      [
+        {x: 0.42, y: 0.42}, {x: 0.48, y: 0.38}, {x: 0.56, y: 0.40}, 
+        {x: 0.56, y: 0.46}, {x: 0.48, y: 0.48}, {x: 0.42, y: 0.44}
+      ],
+      // Bottom Highway Arterial Arc
+      [
+        {x: 0.02, y: 0.92}, {x: 0.28, y: 0.84}, {x: 0.54, y: 0.82}, 
+        {x: 0.78, y: 0.85}, {x: 0.98, y: 0.89}
+      ]
+    ];
+
+    // Generate traffic particles
+    const particles = [];
+    const PARTICLE_COUNT = 85;
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        rampIndex: Math.floor(Math.random() * ramps.length),
+        t: Math.random(),
+        speed: 0.0008 + Math.random() * 0.0013,
+        isHeadlight: Math.random() > 0.45,
+        size: 2.2 + Math.random() * 2.2,
+        length: 14 + Math.random() * 24,
+        alpha: 0.7 + Math.random() * 0.3
+      });
+    }
+
+    function getSplinePoint(points, t) {
+      const n = points.length - 1;
+      const idx = Math.min(Math.floor(t * n), n - 1);
+      const subT = (t * n) - idx;
+      const p0 = points[Math.max(0, idx - 1)];
+      const p1 = points[idx];
+      const p2 = points[idx + 1];
+      const p3 = points[Math.min(n, idx + 2)];
+
+      const t2 = subT * subT;
+      const t3 = t2 * subT;
+
+      const f1 = -0.5 * t3 + t2 - 0.5 * subT;
+      const f2 = 1.5 * t3 - 2.5 * t2 + 1.0;
+      const f3 = -1.5 * t3 + 2.0 * t2 + 0.5 * subT;
+      const f4 = 0.5 * t3 - 0.5 * t2;
+
+      const x = p0.x * f1 + p1.x * f2 + p2.x * f3 + p3.x * f4;
+      const y = p0.y * f1 + p1.y * f2 + p2.y * f3 + p3.y * f4;
+      return { x: x * width, y: y * height };
+    }
+
+    // Rain particles
+    const rainDrops = [];
+    for (let r = 0; r < 140; r++) {
+      rainDrops.push({
+        x: Math.random(),
+        y: Math.random(),
+        length: 14 + Math.random() * 20,
+        speed: 0.022 + Math.random() * 0.025
+      });
+    }
+
+    function animate() {
+      if (isSimulating) {
+        ctx.clearRect(0, 0, width, height);
+
+        const currentProfile = profiles[currentMode] || profiles.night;
+        const multiplier = currentProfile.trafficDensityMultiplier || 1.0;
+        const activeParticleCount = Math.floor(PARTICLE_COUNT * Math.min(multiplier, 1.2));
+
+        // Draw animated vehicle light trails seamlessly
+        for (let i = 0; i < activeParticleCount; i++) {
+          const p = particles[i];
+          p.t += p.speed * (currentMode === 'dusk' ? 1.25 : currentMode === 'dawn' ? 0.8 : 1.0);
+          if (p.t >= 1) p.t = 0;
+
+          const pt = getSplinePoint(ramps[p.rampIndex], p.t);
+          const ptPrev = getSplinePoint(ramps[p.rampIndex], Math.max(0, p.t - 0.016));
+
+          const grad = ctx.createLinearGradient(ptPrev.x, ptPrev.y, pt.x, pt.y);
+          if (p.isHeadlight) {
+            grad.addColorStop(0, 'rgba(255, 240, 160, 0)');
+            grad.addColorStop(1, `rgba(255, 248, 200, ${p.alpha})`);
+          } else {
+            grad.addColorStop(0, 'rgba(255, 50, 50, 0)');
+            grad.addColorStop(1, `rgba(255, 75, 75, ${p.alpha})`);
+          }
+
+          ctx.beginPath();
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = p.size;
+          ctx.lineCap = 'round';
+          ctx.moveTo(ptPrev.x, ptPrev.y);
+          ctx.lineTo(pt.x, pt.y);
+          ctx.stroke();
+
+          // Luminous head/tail glow
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, p.size * 1.15, 0, Math.PI * 2);
+          ctx.fillStyle = p.isHeadlight ? `rgba(255, 255, 220, ${p.alpha * 0.95})` : `rgba(255, 90, 90, ${p.alpha * 0.95})`;
+          ctx.fill();
+        }
+
+        // Authentic Weather Rain Simulation
+        if (isRaining) {
+          ctx.strokeStyle = 'rgba(190, 230, 255, 0.45)';
+          ctx.lineWidth = 1.2;
+          rainDrops.forEach(drop => {
+            drop.y += drop.speed;
+            drop.x -= drop.speed * 0.22;
+            if (drop.y > 1) { drop.y = 0; drop.x = Math.random(); }
+            if (drop.x < 0) drop.x = 1;
+
+            const rx = drop.x * width;
+            const ry = drop.y * height;
+            ctx.beginPath();
+            ctx.moveTo(rx, ry);
+            ctx.lineTo(rx - drop.length * 0.22, ry + drop.length);
+            ctx.stroke();
+
+            // Splash ripples at bottom road levels
+            if (ry > height * 0.75 && Math.random() > 0.88) {
+              ctx.beginPath();
+              ctx.ellipse(rx, ry, 2.5, 1, 0, 0, Math.PI * 2);
+              ctx.strokeStyle = 'rgba(200, 240, 255, 0.3)';
+              ctx.stroke();
+            }
+          });
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Initialize Default State
+    applyMode('night');
+  })();
+</script>
+<!-- END: Dynamic Simulation & Clock Scripts -->
+
+
+</body></html>

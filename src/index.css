@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Manrope', 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F6F7F4;
+    color: #202923;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Tamil font enhancement and line-height normalization to prevent clipping */
+  html[lang="ta"] body,
+  .font-tamil {
+    font-family: 'Noto Sans Tamil', 'Mukta Malar', 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  html[lang="ta"] h1,
+  html[lang="ta"] h2,
+  html[lang="ta"] h3,
+  html[lang="ta"] h4 {
+    font-family: 'Noto Sans Tamil', 'Mukta Malar', 'Manrope', sans-serif;
+    line-height: 1.35;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+.font-mono-tabular {
+  font-family: 'IBM Plex Mono', monospace;
+  font-feature-settings: 'tnum' 1;
+}
+
+.glass-dock-pill {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.25);
+}
+
+.glass-chip {
+  background: rgba(12, 24, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.hero-curved-frame {
+  border-radius: 28px;
+}
+
+@media (min-width: 1024px) {
+  .hero-curved-frame {
+    border-top-left-radius: 180px;
+    border-bottom-left-radius: 36px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+}

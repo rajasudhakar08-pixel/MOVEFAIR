@@ -1,0 +1,8 @@
+{
+  "name": "Remix Movefair Chennai Mobility - v3",
+  "description": "Smarter, Fairer \u0026 Greener Multi-Modal Travel \u0026 Urban Mobility Platform across Chennai (MTC, CMRL Metro, Suburban Rail, Kathipara simulation, and interactive Mobility Explorer)",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#ffffff","on-secondary-fixed":"#001f2a","surface-container-highest":"#dbe5dc","error-container":"#ffdad6","surface-bright":"#f2fcf2","on-tertiary":"#ffffff","on-secondary-container":"#3d687b","primary-container":"#28745e","inverse-primary":"#8bd5bb","background":"#f2fcf2","tertiary":"#245848","on-secondary-fixed-variant":"#1e4c5e","surface-container-low":"#ecf6ed","tertiary-container":"#3e715f","surface-tint":"#1b6a55","surface-dim":"#d3ddd3","surface-variant":"#dbe5dc","inverse-on-surface":"#e9f3ea","on-error":"#ffffff","secondary-container":"#bae6fd","on-primary-container":"#acf7db","surface":"#f2fcf2","on-secondary":"#ffffff","on-surface":"#151e18","on-surface-variant":"#3f4944","on-background":"#151e18","surface-container-lowest":"#ffffff","outline-variant":"#bec9c3","surface-container-high":"#e1ebe1","on-primary-fixed":"#002117","secondary-fixed-dim":"#a1cde3","primary":"#005b47","on-tertiary-container":"#bcf3dd","inverse-surface":"#29332c","error":"#ba1a1a","primary-fixed":"#a7f2d6","on-tertiary-fixed-variant":"#1a4f3f","surface-container":"#e6f1e7","secondary-fixed":"#bee9ff","on-error-container":"#93000a","primary-fixed-dim":"#8bd5bb","tertiary-fixed":"#b7eed8","tertiary-fixed-dim":"#9cd2bc","secondary":"#386477","on-tertiary-fixed":"#002117","on-primary-fixed-variant":"#00513e","outline":"#6f7974"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-xs":"0.25rem","space-lg":"1.25rem","space-xl":"2rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","gutter":"1rem"},fontFamily:{"label-sm":["Inter"],"label-lg":["Inter"],"headline-md":["Manrope"],"display-lg-mobile":["Manrope"],"body-md":["Inter"],"body-lg":["Inter"],"display-lg":["Manrope"],"body-sm":["Inter"],"tabular-fare":["IBM Plex Mono"],"label-md":["Inter"],"tabular-clock":["IBM Plex Mono"],"headline-sm":["Manrope"],"headline-lg":["Manrope"],"headline-lg-mobile":["Manrope"]},fontSize:{"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"tabular-fare":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"tabular-clock":["14px",{"lineHeight":"20px","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto px-4 py-5"><div class="flex items-center gap-3 px-3 pb-6"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">near_me</span></div><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-bold">MOVEFAIR</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-semibold">MAA</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Chennai Urban Mobility</span></div></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-lg text-label-lg">Home</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="mobility-explorer" href="#"><span class="material-symbols-outlined text-[20px]">explore</span><span class="font-label-lg text-label-lg flex-1">Mobility Explorer</span><span class="w-2 h-2 rounded-full bg-primary"></span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="plan-a-journey" href="#"><span class="material-symbols-outlined text-[20px]">route</span><span class="font-label-lg text-label-lg">Plan a Journey</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="saved-routes" href="#"><span class="material-symbols-outlined text-[20px]">bookmark</span><span class="font-label-lg text-label-lg flex-1">Saved Routes</span><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">3</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="commute-budget" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-lg text-label-lg">Commute Budget</span></a><div class="my-3 mx-2 h-px bg-surface-container-highest"></div><div class="px-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Transit Governance</span></div><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="planner-tools" href="#"><span class="material-symbols-outlined text-[20px]">build</span><span class="font-label-lg text-label-lg flex-1">Planner Tools</span><span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Restricted</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="data-and-methodology" href="#"><span class="material-symbols-outlined text-[20px]">database</span><span class="font-label-lg text-label-lg">Data &amp; Methodology</span></a></nav></div><div class="p-4 flex flex-col gap-3 bg-surface-container-lowest"><div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-2"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm font-semibold text-primary uppercase tracking-wide">Green Commute Impact</span><span class="material-symbols-outlined text-[16px] text-primary">eco</span></div><div class="flex items-baseline gap-1.5"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tabular-nums">14.8 kg</span><span class="font-body-sm text-body-sm text-on-surface-variant">CO₂ avoided</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full rounded-full w-3/4"></div></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Equivalent to 3 MTC bus transit commutes</p></div><a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-lg text-label-lg">Settings</span></a></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-30 flex items-center justify-between px-6 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-4 flex-1 max-w-2xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-14 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary transition-all" placeholder="Search for a place, stop, route or ward (e.g. Guindy, Kathipara, Anna Nagar, T. Nagar)" type="text"/><span class="absolute right-3 font-tabular-clock text-body-sm text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container-high">⌘K</span></div></div><div class="flex items-center gap-4"><div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold text-on-surface">Live GTFS Synced</span><span class="text-on-surface-variant text-body-sm">·</span><span class="font-tabular-clock text-body-sm text-on-surface-variant">28°C Chennai</span></div><button class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg font-bold text-on-surface leading-none">Ananya</span><span class="font-body-sm text-body-sm text-on-surface-variant">Commuter · GCC Ward 114</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="relative w-full h-[calc(100vh-4rem)] overflow-hidden bg-surface select-none">
+<!-- Realistic Custom Cartographic Engine Rendering (Simulating MapLibre/MapTiler Canvas) -->
+<div class="absolute inset-0 z-0 bg-[#eef1ec] overflow-hidden" id="map-viewport">
+<svg class="w-full h-full object-cover scale-[1.02]" preserveaspectratio="xMidYMid slice" viewbox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="urbanGrid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" opacity="0.6" stroke="#e1ebe1" stroke-width="0.75"></path>
+</pattern>
+<pattern height="20" id="coastalWaves" patternunits="userSpaceOnUse" width="20">
+<path d="M 0 10 Q 5 7 10 10 T 20 10" fill="none" opacity="0.4" stroke="#bae6fd" stroke-width="0.8"></path>
+</pattern>
+<filter height="120%" id="shadowFilter" width="120%" x="-10%" y="-10%">
+<fedropshadow dx="0" dy="2" flood-color="#151e18" flood-opacity="0.12" stddeviation="3"></fedropshadow>
+</filter>
+</defs>
+<!-- Base Urban Mesh -->
+<rect fill="#f2fcf2" height="1000" width="1600"></rect>
+<rect fill="url(#urbanGrid)" height="1000" width="1600"></rect>
+<!-- Bay of Bengal Coastline (East boundary) -->
+<path d="M 1240 0 C 1220 180 1205 320 1215 480 C 1225 610 1250 820 1270 1000 L 1600 1000 L 1600 0 Z" fill="#bae6fd" opacity="0.6"></path>
+<rect fill="url(#coastalWaves)" height="1000" width="380" x="1220" y="0"></rect>
+<!-- Marina Beach Sand Strip -->
+<path d="M 1205 220 C 1200 360 1215 520 1225 720 L 1238 720 C 1228 520 1215 360 1220 220 Z" fill="#e6f1e7" stroke="#bec9c3" stroke-width="1"></path>
+<!-- Natural Water Corridors: Cooum River & Adyar River -->
+<!-- Cooum River flowing through Central into Marina -->
+<path d="M 0 280 C 260 270 410 320 620 300 C 810 280 980 340 1120 310 C 1170 300 1200 320 1215 330" fill="none" opacity="0.85" stroke="#bae6fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"></path>
+<path d="M 0 280 C 260 270 410 320 620 300 C 810 280 980 340 1120 310 C 1170 300 1200 320 1215 330" fill="none" opacity="0.5" stroke="#386477" stroke-linecap="round" stroke-width="2"></path>
+<!-- Adyar River Estuary -->
+<path d="M 0 780 C 280 760 490 810 740 790 C 940 770 1080 820 1245 840" fill="none" opacity="0.85" stroke="#bae6fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"></path>
+<path d="M 0 780 C 280 760 490 810 740 790 C 940 770 1080 820 1245 840" fill="none" opacity="0.5" stroke="#386477" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Major Secondary Arteries & Ring Roads -->
+<g fill="none" stroke="#dbe5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+<!-- Inner Ring Road / 100 Feet Road / Koyambedu link -->
+<path d="M 440 80 L 460 380 L 530 640 L 610 820 L 750 960"></path>
+<!-- Poonamallee High Road -->
+<path d="M 80 230 L 460 270 L 890 280 L 1160 290"></path>
+<!-- Sardar Patel Road -->
+<path d="M 680 810 L 880 820 L 1100 830"></path>
+</g>
+<!-- Primary Arterial Spine: Anna Salai / GST Road Corridor -->
+<path d="M 1120 295 L 940 430 L 830 550 L 710 730 L 580 880 L 320 1000" fill="none" stroke="#bec9c3" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"></path>
+<path d="M 1120 295 L 940 430 L 830 550 L 710 730 L 580 880 L 320 1000" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path>
+<!-- Kathipara Cloverleaf Node Geometry Representation -->
+<g transform="translate(680, 750)">
+<circle cx="0" cy="0" fill="none" r="32" stroke="#bec9c3" stroke-width="4"></circle>
+<path d="M -22 -22 Q 0 -4 22 -22" fill="none" stroke="#ffffff" stroke-width="3"></path>
+<path d="M -22 22 Q 0 4 22 22" fill="none" stroke="#ffffff" stroke-width="3"></path>
+<path d="M -22 -22 Q -4 0 -22 22" fill="none" stroke="#ffffff" stroke-width="3"></path>
+<path d="M 22 -22 Q 4 0 22 22" fill="none" stroke="#ffffff" stroke-width="3"></path>
+</g>
+<!-- MTC Bus Prominent Lines Overlay (Layer: routes) -->
+<g class="transition-opacity duration-300" id="layer-bus-routes">
+<!-- Route 21G: Central to Tambaram via Marina & Adyar -->
+<path d="M 1130 290 L 1190 380 L 1180 570 L 1150 720 L 1050 810 L 840 850 L 590 910" fill="none" opacity="0.75" stroke="#28745e" stroke-dasharray="7,4" stroke-width="2.5"></path>
+<!-- Route 570: CMBT to OMR IT Express Highway -->
+<path d="M 450 340 L 520 620 L 690 760 L 890 830 L 1090 920 L 1120 1000" fill="none" opacity="0.6" stroke="#3e715f" stroke-dasharray="6,3" stroke-width="2.5"></path>
+</g>
+<!-- Suburban Rail & MRTS (Southern Railway) Corridor -->
+<g class="transition-opacity duration-300 opacity-60" id="layer-suburban-rail">
+<!-- Central to Tambaram Line -->
+<path d="M 1125 270 L 980 390 L 870 510 L 760 680 L 630 840 L 410 990" fill="none" stroke="#151e18" stroke-dasharray="8,6" stroke-width="2"></path>
+<!-- MRTS Beach to Velachery line -->
+<path d="M 1170 210 L 1160 380 L 1140 580 L 1110 740 L 1020 860" fill="none" stroke="#3f4944" stroke-dasharray="4,4" stroke-width="2"></path>
+</g>
+<!-- CMRL METRO LINES (Phase 1 Operational) -->
+<g class="transition-opacity duration-300" id="layer-metro-corridors">
+<!-- CMRL Blue Line (Central to Airport via Guindy) -->
+<path d="M 1120 280 L 970 410 L 880 530 L 770 700 L 670 770 L 520 890 L 310 990" fill="none" stroke="#386477" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path>
+<path d="M 1120 280 L 970 410 L 880 530 L 770 700 L 670 770 L 520 890 L 310 990" fill="none" stroke="#bae6fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<!-- CMRL Green Line (Central to St. Thomas Mount via Koyambedu) -->
+<path d="M 1120 280 L 840 270 L 460 330 L 510 590 L 670 770" fill="none" stroke="#005b47" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"></path>
+<path d="M 1120 280 L 840 270 L 460 330 L 510 590 L 670 770" fill="none" stroke="#a7f2d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</g>
+<!-- Isochrone Catchment: 400m / 5-min walk circle around Transit Hubs -->
+<g class="transition-opacity duration-300" id="layer-walking-access">
+<!-- Guindy Metro Hub Walk Isochrone -->
+<circle cx="730" cy="720" fill="#a7f2d6" fill-opacity="0.28" r="64" stroke="#005b47" stroke-dasharray="4,4" stroke-width="1.5"></circle>
+<!-- Alandur Kathipara Intermodal Node Isochrone -->
+<circle cx="670" cy="770" fill="#bae6fd" fill-opacity="0.3" r="58" stroke="#386477" stroke-dasharray="4,4" stroke-width="1.5"></circle>
+<!-- Central Railway Station Hub Isochrone -->
+<circle cx="1120" cy="285" fill="#a7f2d6" fill-opacity="0.25" r="70" stroke="#005b47" stroke-dasharray="4,4" stroke-width="1.5"></circle>
+</g>
+<!-- AUTHORITATIVE GCC WARD BOUNDARY OVERLAY: Ward 114 (Zone IX Nungambakkam/Teynampet) -->
+<g class="cursor-pointer" id="layer-ward-boundary">
+<polygon fill="#28745e" fill-opacity="0.18" points="820,440 920,420 980,480 940,590 860,600 790,530" stroke="#005b47" stroke-linejoin="round" stroke-width="2.5"></polygon>
+<!-- Ward Centroid Marker -->
+<circle cx="885" cy="510" fill="#005b47" r="5"></circle>
+<circle class="animate-ping" cx="885" cy="510" fill="#28745e" fill-opacity="0.2" r="14"></circle>
+<!-- Ward Pin Tag -->
+<g transform="translate(885, 478)">
+<rect fill="#ffffff" filter="url(#shadowFilter)" height="24" rx="12" width="130" x="-65" y="-22"></rect>
+<text fill="#005b47" font-family="Manrope" font-size="11" font-weight="700" text-anchor="middle" x="0" y="-6">WARD 114 (GCC)</text>
+</g>
+</g>
+<!-- Adjacent Ward Boundaries (Subtle context) -->
+<polygon fill="#ecf6ed" fill-opacity="0.4" points="690,410 820,440 790,530 680,510 650,450" stroke="#bec9c3" stroke-dasharray="2,3" stroke-width="1"></polygon>
+<polygon fill="#ecf6ed" fill-opacity="0.4" points="820,440 920,420 950,330 830,340" stroke="#bec9c3" stroke-dasharray="2,3" stroke-width="1"></polygon>
+<polygon fill="#ecf6ed" fill-opacity="0.4" points="860,600 940,590 990,690 890,720" stroke="#bec9c3" stroke-dasharray="2,3" stroke-width="1"></polygon>
+<!-- Key Station Nodes & Multi-Modal Points -->
+<!-- Chennai Central / Park Interchange -->
+<g transform="translate(1120, 285)">
+<circle cx="0" cy="0" fill="#ffffff" r="9" stroke="#151e18" stroke-width="2.5"></circle>
+<circle cx="0" cy="0" fill="#ba1a1a" r="4.5"></circle>
+<text fill="#151e18" font-family="Manrope" font-size="12" font-weight="700" x="14" y="4">Chennai Central</text>
+<text fill="#3f4944" font-family="Inter" font-size="9" x="14" y="16">சென்ட்ரல் · CMRL+SR Interchange</text>
+</g>
+<!-- Government Estate Station -->
+<g transform="translate(1030, 360)">
+<circle cx="0" cy="0" fill="#ffffff" r="5" stroke="#386477" stroke-width="2"></circle>
+<circle cx="0" cy="0" fill="#386477" r="2.5"></circle>
+<text fill="#151e18" font-family="Inter" font-size="10" font-weight="600" x="10" y="3">Govt Estate</text>
+</g>
+<!-- Thousand Lights / Agurchand (Ward 114) -->
+<g transform="translate(930, 470)">
+<circle cx="0" cy="0" fill="#ffffff" r="6" stroke="#005b47" stroke-width="2.5"></circle>
+<circle cx="0" cy="0" fill="#005b47" r="3"></circle>
+<text fill="#005b47" font-family="Manrope" font-size="11" font-weight="700" x="11" y="3">Thousand Lights</text>
+<text fill="#3f4944" font-family="Inter" font-size="9" x="11" y="15">ஆயிரம் விளக்கு · Blue Line</text>
+</g>
+<!-- Koyambedu CMBT Terminal -->
+<g transform="translate(460, 330)">
+<rect fill="#ffffff" height="16" rx="4" stroke="#005b47" stroke-width="2" width="16" x="-8" y="-8"></rect>
+<circle cx="0" cy="0" fill="#005b47" r="3.5"></circle>
+<text fill="#151e18" font-family="Manrope" font-size="11" font-weight="700" text-anchor="end" x="-12" y="-12">CMBT Koyambedu</text>
+<text fill="#3f4944" font-family="Inter" font-size="9" text-anchor="end" x="-12" y="1">கோயம்பேடு பேருந்து முனையம்</text>
+</g>
+<!-- Guindy Multi-modal Interlink -->
+<g transform="translate(730, 720)">
+<circle cx="0" cy="0" fill="#ffffff" r="7" stroke="#386477" stroke-width="2.5"></circle>
+<circle cx="0" cy="0" fill="#386477" r="3.5"></circle>
+<text fill="#151e18" font-family="Manrope" font-size="11" font-weight="700" x="12" y="3">Guindy</text>
+<text fill="#3f4944" font-family="Inter" font-size="9" x="12" y="15">கிண்டி · Metro + Suburban</text>
+</g>
+<!-- Alandur Kathipara Interchange Node -->
+<g transform="translate(670, 770)">
+<circle cx="0" cy="0" fill="#ffffff" r="8" stroke="#005b47" stroke-width="3"></circle>
+<circle cx="0" cy="0" fill="#386477" r="4"></circle>
+<text fill="#151e18" font-family="Manrope" font-size="11" font-weight="700" text-anchor="end" x="-12" y="18">Alandur (Kathipara)</text>
+<text fill="#3f4944" font-family="Inter" font-size="9" text-anchor="end" x="-12" y="30">ஆலந்தூர் சந்திப்பு (Blue/Green)</text>
+</g>
+<!-- Clustered MTC Bus Stop Pin Markers (Layer: bus-stops) -->
+<g id="layer-bus-stops">
+<!-- Panagal Park / T.Nagar Cluster -->
+<g transform="translate(810, 560)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<g transform="translate(835, 575)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<g transform="translate(790, 590)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<!-- Nungambakkam High Road -->
+<g transform="translate(850, 480)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<g transform="translate(875, 450)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<!-- Gemini Flyover / Anna Salai -->
+<g transform="translate(905, 520)"><circle cx="0" cy="0" fill="#28745e" r="4.5"></circle><circle cx="0" cy="0" fill="#ffffff" r="2.5"></circle></g>
+<g transform="translate(945, 545)"><circle cx="0" cy="0" fill="#28745e" r="4"></circle><circle cx="0" cy="0" fill="#ffffff" r="2"></circle></g>
+<!-- Vadapalani Bus Depot Node -->
+<g transform="translate(560, 510)"><circle cx="0" cy="0" fill="#28745e" r="5"></circle><circle cx="0" cy="0" fill="#ffffff" r="2.5"></circle></g>
+</g>
+</svg>
+</div>
+<!-- FLOATING TOP-LEFT: Map Layers Control Drawer -->
+<div class="absolute top-5 left-5 z-20 w-80 max-h-[calc(100vh-8.5rem)] flex flex-col bg-surface-container-lowest rounded-xl shadow-lg transition-all duration-300" id="layers-panel">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between px-4 py-3.5 bg-surface-container-low rounded-t-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">layers</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Map Layers</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-semibold">4 Active</span>
+</div>
+<button class="w-7 h-7 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" id="toggle-drawer-btn" title="Collapse Layer Panel">
+<span class="material-symbols-outlined text-[18px]">unfold_less</span>
+</button>
+</div>
+<!-- Scrollable Layer Checkboxes Body -->
+<div class="overflow-y-auto p-3.5 flex flex-col gap-4 text-on-surface" id="layers-content">
+<!-- Layer Group: Civic & Administrative -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Civic Administrative</span>
+<span class="font-label-sm text-label-sm text-primary">GCC GIS</span>
+</div>
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/70 hover:bg-surface-container-high cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-ward" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">GCC Ward Boundaries</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Layer 4 Official GeoJSON polygon fill</span>
+</div>
+</label>
+</div>
+<!-- Layer Group: Public Transit Network -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">CUMTA Transit Corridors</span>
+<span class="font-label-sm text-label-sm text-secondary">GTFS Validated</span>
+</div>
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/70 hover:bg-surface-container-high cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-metro" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">CMRL Metro Corridors</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Phase 1 Blue &amp; Green alignment</span>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/70 hover:bg-surface-container-high cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-bus-routes" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">MTC Bus Routes</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Core radial routes (21G, 19B, 570, 70V)</span>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-bus-stops" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">MTC Bus Stops</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated roadside boarding nodes</span>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-suburban" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Southern Railway Suburban</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Beach-Tambaram &amp; MRTS Corridors</span>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-0 accent-primary" id="chk-walking" type="checkbox"/>
+<div class="flex flex-col leading-tight">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Walking Isochrones</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-surface-container-highest text-tertiary">400m / 5m</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">OSMnx walkable transit sheds</span>
+</div>
+</label>
+</div>
+<!-- Real-Time & Live Telemetry Section -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold">Real-time Telemetry</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Experimental</span>
+</div>
+<!-- Disabled: MTC GPS Feed Unavailable state -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-2 opacity-50 cursor-not-allowed">
+<input class="w-4 h-4 rounded text-outline cursor-not-allowed" disabled="" type="checkbox"/>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Live MTC Bus GPS</span>
+</label>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">Feed Pending</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-6">MTC operator telemetry integration pending CUMTA open API access release.</p>
+</div>
+<!-- TomTom Traffic trial -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary" type="checkbox"/>
+<span class="font-label-lg text-label-lg text-on-surface">TomTom Orbis Live Traffic</span>
+</label>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Trial mode</span>
+</div>
+</div>
+</div>
+<!-- Source Attribution Footer -->
+<div class="px-4 py-2.5 bg-surface-container-lowest rounded-b-xl">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+<span class="font-semibold text-on-surface">Data Sources:</span> GCC ArcGIS Server (EPSG:4326) · CUMTA Open Transit · OSMnx Footways · CMRL Rail Map.
+        </p>
+</div>
+</div>
+<!-- QUICK MODE SWITCHER BAR (Top Center) -->
+<div class="absolute top-5 left-1/2 -translate-x-1/2 z-20 hidden md:flex items-center p-1 bg-surface-container-lowest rounded-xl shadow-md">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[18px]">commute</span>
+<span>Multi-Modal View</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[18px]">directions_subway</span>
+<span>CMRL Metro</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[18px]">directions_bus</span>
+<span>MTC Bus Grid</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg font-semibold">
+<span class="material-symbols-outlined text-[18px]">location_city</span>
+<span>GCC Ward Analytics</span>
+</button>
+</div>
+<!-- FLOATING RIGHT: Selected Entity Inspection Panel (Ward 114 Active Focus) -->
+<div class="absolute top-5 right-5 z-20 w-96 flex flex-col bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden transition-transform duration-300" id="inspection-card">
+<!-- Entity Banner with Urban Context Graphic -->
+<div class="relative h-28 bg-surface-container-low flex items-end p-4 overflow-hidden">
+<div class="absolute -right-6 -bottom-8 w-36 h-36 rounded-full bg-primary/10 blur-xl"></div>
+<div class="relative z-10 flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary text-on-primary font-bold">GCC ZONE IX</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Census Tract 033</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface leading-tight tracking-tight">Ward 114</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Nungambakkam · ஆயிரம் விளக்கு (Thousand Lights)</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-surface-container-lowest/80 backdrop-blur text-on-surface-variant hover:bg-surface-container flex items-center justify-center transition-colors" id="close-inspect-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Entity Inspection Content -->
+<div class="p-4 flex flex-col gap-4">
+<!-- Verification Source Indicator Tag -->
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex-1 leading-snug">
+<strong class="text-on-surface">Verified Geometry:</strong> GCC ArcGIS Boundary &amp; CUMTA 2026 GTFS Transit Shed.
+          </span>
+</div>
+<!-- 4-Stat Metric Matrix -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Transit Coverage</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md font-bold text-primary">High</span>
+<span class="font-label-sm text-label-sm text-tertiary">Tier 1</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Top 5% in Chennai Metro</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">MTC Bus Stops</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">42</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">stops</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Avg headway 3.8 min</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Metro Stations</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md font-bold text-secondary tabular-nums">2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">nodes</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Agurchand &amp; Thousand Lights</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">400m Walk Shed</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tabular-nums">84%</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">↑ +6%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Residents within 5m walk</span>
+</div>
+</div>
+<!-- Representative Commute Fare & Energy Impact Breakdown -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface font-semibold">Representative Commute</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">MTC Ordinary / Metro</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-tabular-fare text-tabular-fare font-bold text-on-surface">₹18 — ₹32</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ average journey</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">68% Green Share</span>
+</div>
+<!-- Bar visual representation of multi-modal splits in Ward 114 -->
+<div class="w-full h-2 rounded-full overflow-hidden flex bg-surface-container-highest">
+<div class="bg-primary h-full w-[54%]" title="Bus Transit 54%"></div>
+<div class="bg-secondary h-full w-[26%]" title="Metro Rail 26%"></div>
+<div class="bg-tertiary-container h-full w-[12%]" title="Suburban Rail 12%"></div>
+<div class="bg-outline h-full w-[8%]" title="Auto Rickshaw / Walk 8%"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span>MTC 54%</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>CMRL 26%</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-container"></span>Train 12%</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-outline"></span>Walk 8%</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-11 rounded-lg bg-primary hover:bg-tertiary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">route</span>
+<span>Plan Journey from here</span>
+</button>
+<button class="h-11 px-3.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">compare_arrows</span>
+<span>Compare</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FLOATING RIGHT-BOTTOM: Navigation & Map Tools -->
+<div class="absolute right-5 bottom-12 z-20 flex flex-col items-center gap-2">
+<!-- Compass Widget -->
+<button class="w-10 h-10 rounded-lg bg-surface-container-lowest text-on-surface shadow-md flex items-center justify-center hover:bg-surface-container transition-colors" id="btn-compass" title="Reset North">
+<span class="material-symbols-outlined text-[20px] text-error font-bold transition-transform">explore</span>
+</button>
+<!-- Zoom In / Zoom Out Segmented Group -->
+<div class="flex flex-col bg-surface-container-lowest rounded-lg shadow-md overflow-hidden">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" id="btn-zoom-in" title="Zoom In">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<div class="w-full h-px bg-surface-container-high"></div>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" id="btn-zoom-out" title="Zoom Out">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+</div>
+<!-- Geolocation "Find My Location" -->
+<button class="w-10 h-10 rounded-lg bg-surface-container-lowest text-primary shadow-md flex items-center justify-center hover:bg-surface-container transition-colors" id="btn-geolocate" title="Center to My Ward">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</button>
+<!-- Fullscreen Toggle -->
+<button class="w-10 h-10 rounded-lg bg-surface-container-lowest text-on-surface shadow-md flex items-center justify-center hover:bg-surface-container transition-colors" id="btn-fullscreen" title="Toggle Fullscreen Canvas">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+</div>
+<!-- FLOATING BOTTOM-LEFT: Transit Legend Badge -->
+<div class="absolute bottom-12 left-5 z-20 hidden lg:flex items-center gap-4 px-3.5 py-2 rounded-lg bg-surface-container-lowest/95 backdrop-blur shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">CMRL Blue</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">CMRL Green</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-1 border-b-2 border-dashed border-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">MTC Corridors</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-fixed border border-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">5-Min Shed</span>
+</div>
+</div>
+<!-- BOTTOM FIXED STATUS BAR: Scale, Coordinates & Data Freshness Audit -->
+<div class="absolute bottom-0 left-0 right-0 h-9 z-30 bg-surface-container-lowest/95 backdrop-blur px-5 flex items-center justify-between text-on-surface-variant">
+<!-- Left: Scale Bar & Real Coordinates -->
+<div class="flex items-center gap-5">
+<!-- Scale Bar -->
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-center">
+<span class="font-tabular-clock text-body-sm leading-none font-semibold text-on-surface">1 km</span>
+<div class="w-14 h-1.5 border-b border-l border-r border-on-surface mt-0.5"></div>
+</div>
+<span class="font-tabular-clock text-body-sm">0.5 mi</span>
+</div>
+<div class="h-3.5 w-px bg-surface-container-high hidden sm:block"></div>
+<!-- Real Coordinates (Central Chennai / Anna Salai) -->
+<div class="hidden sm:flex items-center gap-1.5 font-tabular-clock text-body-sm">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+<span class="text-on-surface font-medium">13.0827° N, 80.2707° E</span>
+<span class="text-on-surface-variant font-normal">(EPSG:4326 WGS84)</span>
+</div>
+</div>
+<!-- Right: Truth-in-Data Freshness Indicator & Basemap Copyright -->
+<div class="flex items-center gap-4">
+<!-- Truth-in-Data Tag -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-low">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-tabular-clock text-body-sm font-medium text-on-surface">GTFS: Oct 2026 Validated</span>
+<span class="text-on-surface-variant">·</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Realtime GPS: Off (API Pending)</span>
+</div>
+<!-- Basemap Attribution -->
+<span class="hidden md:inline font-body-sm text-body-sm text-on-surface-variant">
+          © MapTiler © OpenStreetMap © GCC GIS Server
+        </span>
+</div>
+</div>
+</div>
+<!-- Inline Micro-Interactions Script -->
+<script>
+    (function initMobilityExplorer() {
+      // Toggle Layers Panel Collapse
+      const toggleDrawerBtn = document.getElementById('toggle-drawer-btn');
+      const layersContent = document.getElementById('layers-content');
+      let isCollapsed = false;
+
+      if (toggleDrawerBtn && layersContent) {
+        toggleDrawerBtn.addEventListener('click', () => {
+          isCollapsed = !isCollapsed;
+          layersContent.classList.toggle('hidden', isCollapsed);
+          const icon = toggleDrawerBtn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.textContent = isCollapsed ? 'unfold_more' : 'unfold_less';
+          }
+        });
+      }
+
+      // Layer Toggles reacting to map canvas elements
+      const wireLayer = (checkboxId, svgLayerId) => {
+        const cb = document.getElementById(checkboxId);
+        const layer = document.getElementById(svgLayerId);
+        if (cb && layer) {
+          cb.addEventListener('change', () => {
+            layer.style.opacity = cb.checked ? '1' : '0';
+          });
+        }
+      };
+
+      wireLayer('chk-bus-routes', 'layer-bus-routes');
+      wireLayer('chk-metro', 'layer-metro-corridors');
+      wireLayer('chk-suburban', 'layer-suburban-rail');
+      wireLayer('chk-walking', 'layer-walking-access');
+      wireLayer('chk-bus-stops', 'layer-bus-stops');
+      wireLayer('chk-ward', 'layer-ward-boundary');
+
+      // Inspection Card Close/Open
+      const closeInspectBtn = document.getElementById('close-inspect-btn');
+      const inspectionCard = document.getElementById('inspection-card');
+      const wardOverlay = document.getElementById('layer-ward-boundary');
+
+      if (closeInspectBtn && inspectionCard) {
+        closeInspectBtn.addEventListener('click', () => {
+          inspectionCard.classList.add('translate-x-[120%]');
+        });
+      }
+
+      if (wardOverlay && inspectionCard) {
+        wardOverlay.addEventListener('click', () => {
+          inspectionCard.classList.remove('translate-x-[120%]');
+        });
+      }
+
+      // Compass Spin Micro-interaction
+      const compassBtn = document.getElementById('btn-compass');
+      if (compassBtn) {
+        compassBtn.addEventListener('click', () => {
+          const icon = compassBtn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.classList.add('rotate-[360deg]');
+            setTimeout(() => {
+              icon.classList.remove('rotate-[360deg]');
+            }, 600);
+          }
+        });
+      }
+
+      // Zoom Buttons Feedback
+      const zoomIn = document.getElementById('btn-zoom-in');
+      const zoomOut = document.getElementById('btn-zoom-out');
+      const mapViewport = document.getElementById('map-viewport');
+
+      let currentScale = 1.0;
+      if (zoomIn && mapViewport) {
+        zoomIn.addEventListener('click', () => {
+          if (currentScale < 1.4) {
+            currentScale += 0.08;
+            mapViewport.style.transform = `scale(${currentScale})`;
+            mapViewport.style.transition = 'transform 0.25s ease-out';
+          }
+        });
+      }
+
+      if (zoomOut && mapViewport) {
+        zoomOut.addEventListener('click', () => {
+          if (currentScale > 0.85) {
+            currentScale -= 0.08;
+            mapViewport.style.transform = `scale(${currentScale})`;
+            mapViewport.style.transition = 'transform 0.25s ease-out';
+          }
+        });
+      }
+
+      // Geolocation Action
+      const geolocateBtn = document.getElementById('btn-geolocate');
+      if (geolocateBtn) {
+        geolocateBtn.addEventListener('click', () => {
+          if (inspectionCard) {
+            inspectionCard.classList.remove('translate-x-[120%]');
+          }
+          currentScale = 1.15;
+          if (mapViewport) {
+            mapViewport.style.transform = `scale(${currentScale})`;
+            mapViewport.style.transition = 'transform 0.3s ease-out';
+          }
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

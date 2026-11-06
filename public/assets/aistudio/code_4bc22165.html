@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOVEFAIR - Smarter, Fairer &amp; Greener Travel Across Chennai</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Manrope & Inter & IBM Plex Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              canvas: '#F6F7F4',
+              text: '#202923',
+              muted: '#6D7770',
+              primary: '#28745E',
+              deep: '#174D3D',
+              border: '#E4E8E2',
+              pill: '#E9EFE9',
+              blue: '#547F93',
+              amber: '#D49A57',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Curve Framing & Typography -->
+<style data-purpose="custom-layout">
+    body {
+      background-color: #F6F7F4;
+      color: #202923;
+    }
+    .hero-curved-frame {
+      border-radius: 28px;
+    }
+    @media (min-width: 1024px) {
+      .hero-curved-frame {
+        border-top-left-radius: 220px;
+        border-bottom-left-radius: 40px;
+        border-top-right-radius: 28px;
+        border-bottom-right-radius: 28px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-[#28745E] selection:text-white bg-[#F6F7F4] text-[#202923] antialiased">
+<!-- ========================================== -->
+<!-- 1. NAVIGATION BAR                          -->
+<!-- ========================================== -->
+<header class="w-full bg-[#F6F7F4]/95 backdrop-blur-md border-b border-[#E4E8E2] sticky top-0 z-50 transition-colors">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a aria-label="MOVEFAIR Home" class="flex items-center gap-3 focus:outline-none group" href="#">
+<div class="w-9 h-9 rounded-full bg-[#174D3D] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
+<svg class="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+<circle cx="12" cy="10" r="3"></circle>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-[#174D3D] uppercase">Movefair</span>
+</a>
+<!-- Desktop Navigation Menu -->
+<nav aria-label="Primary Navigation" class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+<a class="text-[#174D3D] transition-colors relative py-1 border-b-2 border-[#174D3D]" href="#">Home</a>
+<a class="text-[#6D7770] hover:text-[#174D3D] transition-colors" href="#features">Features</a>
+<a class="text-[#6D7770] hover:text-[#174D3D] transition-colors" href="#commuters">For Commuters</a>
+<a class="text-[#6D7770] hover:text-[#174D3D] transition-colors" href="#planners">For Planners</a>
+<a class="text-[#6D7770] hover:text-[#174D3D] transition-colors" href="#methodology">Data &amp; Methodology</a>
+</nav>
+<!-- Action Buttons & Language Switcher -->
+<div class="flex items-center space-x-3">
+<!-- Language selector toggle (English / தமிழ்) -->
+<div class="hidden sm:inline-flex items-center bg-[#E9EFE9] rounded-lg p-0.5 border border-[#d2ddd3] text-xs font-semibold text-[#6D7770] mr-2">
+<button class="px-2.5 py-1 rounded bg-white text-[#174D3D] shadow-xs font-bold transition-all">EN</button>
+<button class="px-2.5 py-1 rounded text-[#6D7770] hover:text-[#174D3D] transition-all">தமிழ்</button>
+</div>
+<a class="px-4 py-2 text-sm font-semibold text-[#174D3D] border border-[#174D3D]/30 rounded-lg hover:border-[#174D3D] hover:bg-white/80 transition-all" href="#">
+          Log in
+        </a>
+<a class="px-5 py-2 text-sm font-semibold text-white bg-[#174D3D] rounded-lg shadow-sm hover:bg-[#28745E] transition-all focus:ring-2 focus:ring-[#28745E] focus:ring-offset-2 flex items-center gap-1.5" href="#">
+<span>Get Started</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- 2. HERO SECTION & 4 FEATURE PILLARS        -->
+<!-- ========================================== -->
+<main class="flex-grow">
+<section class="w-full relative overflow-hidden pt-6 pb-16 lg:py-16 border-b border-[#E4E8E2]">
+<div class="w-full max-w-[1440px] mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center min-h-[560px]">
+<!-- Left Column: Value Proposition & CTAs -->
+<div class="lg:col-span-6 flex flex-col justify-center pr-0 lg:pr-2 z-10">
+<!-- Category Pill Tag -->
+<div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-[#E9EFE9] border border-[#d2ddd3] mb-6 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#28745E] animate-pulse"></span>
+<span class="text-xs font-bold tracking-wider text-[#28745E] uppercase font-body">CHENNAI URBAN MOBILITY PLATFORM · CUMTA PS7</span>
+</div>
+<!-- Main Hero Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#202923] leading-[1.12] tracking-tight mb-5">
+              Smarter, Fairer &amp; <br class="hidden sm:inline"/>Greener Travel <br class="hidden sm:inline"/>Across Chennai
+            </h1>
+<!-- Subtitle / Descriptive Copy -->
+<p class="text-base sm:text-lg text-[#6D7770] font-normal font-body leading-relaxed max-w-xl mb-8">
+              Plan your journeys, compare travel options, reduce costs and explore a more accessible and sustainable city.
+            </p>
+<!-- Call to Action Buttons -->
+<div class="flex flex-wrap items-center gap-4 mb-10">
+<a class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-white font-semibold bg-[#174D3D] hover:bg-[#28745E] shadow-sm hover:shadow transition-all group" href="#">
+<span>Launch the App</span>
+<svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 12h14"></path>
+<path d="m12 5 7 7-7 7"></path>
+</svg>
+</a>
+<a class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-[#202923] font-semibold bg-white border border-[#E4E8E2] hover:bg-[#F6F7F4] hover:border-[#6D7770]/40 transition-all shadow-sm" href="#how-it-works">
+                See How It Works
+              </a>
+</div>
+<!-- Direct Trust Signals -->
+<div class="flex items-center gap-6 text-xs text-[#6D7770] font-body">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#28745E]">verified</span>
+<span>Powered by CUMTA &amp; GCC GTFS</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#28745E]">lock</span>
+<span>No Mandatory Income Input</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Signature Organic Mask Visual Container -->
+<div class="lg:col-span-6 relative w-full h-[400px] sm:h-[480px] lg:h-[580px] flex items-center justify-center">
+<div class="relative w-full h-full hero-curved-frame overflow-hidden shadow-2xl border-4 border-white/95 bg-slate-200">
+<img alt="A clean, professional landscape composite photograph of Chennai public transit in bright daylight: Chennai Central railway heritage station with its iconic red-brick clock tower in the background, a modern Chennai Metro Rail (CMRL) elevated train moving on a viaduct bridge, and an MTC bus (modern green and white livery) driving on a wide clean tree-lined arterial road below." class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1XDtlmyKGgRZEZMVcnTyVxjySs625xzxQXk0LsBMEL4c8rlvg3_gu3UQO2-xfu8PuRHbW4hVE7yfwcKuWtHSsi_6rinNipQtsj9sX0Y-Y5BjfEiLzBo3vldRR0hu62Uj1t0-m-hOh4X1zq471WuKdg8Rax7OfnxwraHcBrbppztjnqWB7qyF1VNoY7n_6YZIWRtIhjJOfXnSte9pZ4MsHjLfk2RvRtyUIIYG-jfqpmBNw"/>
+<!-- Vignette Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+<!-- Floating Live Pill Status Badge -->
+<div class="absolute bottom-5 left-6 sm:bottom-7 sm:left-8 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/80 shadow-lg flex items-center gap-2.5 pointer-events-auto">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold text-[#202923] tracking-wide font-body">
+                  Real-Time Data Feed: Chennai Central &amp; CMRL Live
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4 Core Feature Cards (Below Hero) -->
+<div class="mt-14 pt-10 border-t border-[#E4E8E2] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="features">
+<!-- Card 1 -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] hover:border-[#28745E]/40 hover:shadow-md transition-all group">
+<div class="w-11 h-11 rounded-lg bg-[#E9EFE9] flex items-center justify-center text-[#28745E] mb-3.5 group-hover:bg-[#28745E] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">directions_bus</span>
+</div>
+<h3 class="text-base font-bold text-[#202923] mb-1.5">Plan &amp; Compare Routes</h3>
+<p class="text-xs leading-relaxed text-[#6D7770] font-body">
+              Find Cheapest, Fastest &amp; Balanced options across MTC, CMRL &amp; suburban rail with step-by-step guidance.
+            </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] hover:border-[#28745E]/40 hover:shadow-md transition-all group">
+<div class="w-11 h-11 rounded-lg bg-[#E9EFE9] flex items-center justify-center text-[#28745E] mb-3.5 group-hover:bg-[#28745E] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">eco</span>
+</div>
+<h3 class="text-base font-bold text-[#202923] mb-1.5">Save Money &amp; Emissions</h3>
+<p class="text-xs leading-relaxed text-[#6D7770] font-body">
+              Track recurring travel expenses, discover greener alternatives &amp; reduce carbon footprint without hassle.
+            </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] hover:border-[#28745E]/40 hover:shadow-md transition-all group">
+<div class="w-11 h-11 rounded-lg bg-[#E9EFE9] flex items-center justify-center text-[#28745E] mb-3.5 group-hover:bg-[#28745E] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">query_stats</span>
+</div>
+<h3 class="text-base font-bold text-[#202923] mb-1.5">Explore Ward Mobility</h3>
+<p class="text-xs leading-relaxed text-[#6D7770] font-body">
+              Visualise all 200 GCC wards, transit coverage, bus frequencies and walking accessibility catchment scores.
+            </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] hover:border-[#28745E]/40 hover:shadow-md transition-all group">
+<div class="w-11 h-11 rounded-lg bg-[#E9EFE9] flex items-center justify-center text-[#28745E] mb-3.5 group-hover:bg-[#28745E] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">tune</span>
+</div>
+<h3 class="text-base font-bold text-[#202923] mb-1.5">Simulate Improvements</h3>
+<p class="text-xs leading-relaxed text-[#6D7770] font-body">
+              Planner-grade scenarios testing bus headway changes and feeder connectivity with clear impact metrics.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 3. 'FOR COMMUTERS' SECTION                 -->
+<!-- (Answering the 4 Citizen Questions)        -->
+<!-- ========================================== -->
+<section class="w-full py-20 bg-white border-b border-[#E4E8E2]" id="commuters">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<!-- Header -->
+<div class="max-w-3xl mb-14">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E9EFE9] text-[#28745E] text-xs font-bold uppercase tracking-wider mb-3">
+            Citizen First Design
+          </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[#202923] tracking-tight mb-4">
+            Designed for Every Chennai Commuter
+          </h2>
+<p class="text-base sm:text-lg text-[#6D7770] font-body">
+            From students in Guindy to office commuters on OMR, travel choices made simple without technical transit jargon. Every journey answers four straightforward questions:
+          </p>
+</div>
+<!-- 4 Citizen Questions Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Q1: Find -->
+<div class="bg-[#F6F7F4] rounded-2xl p-6 border border-[#E4E8E2] flex flex-col justify-between hover:shadow-lg transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-[#28745E] font-mono tracking-widest bg-white px-2.5 py-1 rounded-md border border-[#E4E8E2]">STEP 01</span>
+<span class="material-symbols-outlined text-[#28745E]">travel_explore</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-2">1. Find</h3>
+<p class="text-xs font-semibold text-[#174D3D] mb-3">Where do you want to go?</p>
+<p class="text-sm text-[#6D7770] font-body mb-6">
+                Easy destination search with popular landmarks, metro stops, suburban stations, IT corridor tech parks, and quick recent shortcuts.
+              </p>
+</div>
+<!-- Visual Mock Pill -->
+<div class="bg-white p-3 rounded-xl border border-[#E4E8E2] text-xs space-y-2">
+<div class="flex items-center gap-2 text-[#202923] font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="truncate">Guindy Station to Tidel Park</span>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-[#6D7770]">
+<span class="px-1.5 py-0.5 rounded bg-[#E9EFE9] text-[#174D3D] font-bold">Fastest</span>
+<span>Metro + MTC feeder available</span>
+</div>
+</div>
+</div>
+<!-- Q2: Travel -->
+<div class="bg-[#F6F7F4] rounded-2xl p-6 border border-[#E4E8E2] flex flex-col justify-between hover:shadow-lg transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-[#547F93] font-mono tracking-widest bg-white px-2.5 py-1 rounded-md border border-[#E4E8E2]">STEP 02</span>
+<span class="material-symbols-outlined text-[#547F93]">route</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-2">2. Travel</h3>
+<p class="text-xs font-semibold text-[#547F93] mb-3">How do you get there?</p>
+<p class="text-sm text-[#6D7770] font-body mb-6">
+                Step-by-step guidance combining MTC buses, CMRL Metro, suburban rail, walk segments, and first/last-mile shared mobility.
+              </p>
+</div>
+<!-- Visual Mock Pill -->
+<div class="bg-white p-3 rounded-xl border border-[#E4E8E2] text-xs space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-bold text-[#202923]">Transit Combination</span>
+<span class="font-mono text-[11px] text-[#6D7770]">34 min</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-[#547F93] font-semibold">
+<span>Walk 4m</span> → <span class="bg-blue-50 text-[#547F93] px-1 rounded">Blue Line</span> → <span>MTC 19B</span>
+</div>
+</div>
+</div>
+<!-- Q3: Spend -->
+<div class="bg-[#F6F7F4] rounded-2xl p-6 border border-[#E4E8E2] flex flex-col justify-between hover:shadow-lg transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-[#D49A57] font-mono tracking-widest bg-white px-2.5 py-1 rounded-md border border-[#E4E8E2]">STEP 03</span>
+<span class="material-symbols-outlined text-[#D49A57]">account_balance_wallet</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-2">3. Spend</h3>
+<p class="text-xs font-semibold text-[#D49A57] mb-3">What will it cost?</p>
+<p class="text-sm text-[#6D7770] font-body mb-6">
+                Clear transparent single-trip fares and monthly commute budget projections without requiring personal bank or income details.
+              </p>
+</div>
+<!-- Visual Mock Pill -->
+<div class="bg-white p-3 rounded-xl border border-[#E4E8E2] text-xs space-y-1">
+<div class="flex items-center justify-between font-bold text-[#202923]">
+<span>Fare Comparison</span>
+<span class="text-emerald-700 font-mono">₹28 / trip</span>
+</div>
+<div class="text-[11px] text-[#6D7770]">
+                Saves <span class="font-semibold text-[#202923]">₹1,240/month</span> vs cab ride
+              </div>
+</div>
+</div>
+<!-- Q4: Choose Better -->
+<div class="bg-[#F6F7F4] rounded-2xl p-6 border border-[#E4E8E2] flex flex-col justify-between hover:shadow-lg transition-all">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-[#28745E] font-mono tracking-widest bg-white px-2.5 py-1 rounded-md border border-[#E4E8E2]">STEP 04</span>
+<span class="material-symbols-outlined text-[#28745E]">compost</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-2">4. Choose Better</h3>
+<p class="text-xs font-semibold text-[#28745E] mb-3">Is there a greener option?</p>
+<p class="text-sm text-[#6D7770] font-body mb-6">
+                Constructive, non-judgmental eco nudges that spotlight rupees saved and kilograms of carbon avoided on every Chennai trip.
+              </p>
+</div>
+<!-- Visual Mock Pill -->
+<div class="bg-white p-3 rounded-xl border border-[#E4E8E2] text-xs space-y-1">
+<div class="flex items-center justify-between font-bold text-[#28745E]">
+<span>-2.4 kg CO₂e</span>
+<span class="text-[10px] bg-emerald-100 text-[#174D3D] px-1.5 py-0.5 rounded font-bold">ECO CHOICE</span>
+</div>
+<div class="text-[11px] text-[#6D7770]">
+                Equivalent to 3 urban trees planted
+              </div>
+</div>
+</div>
+</div>
+<!-- Interactive Journey Comparison Card -->
+<div class="mt-12 bg-[#F6F7F4] border border-[#E4E8E2] rounded-2xl p-6 sm:p-8" id="how-it-works">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E4E8E2]">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#28745E]">Live Trip Preview</span>
+<h4 class="text-2xl font-bold text-[#202923]">Compare Chennai Routes: Anna Nagar West → TIDEL Park</h4>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-[#6D7770] font-mono">Simulated for: Peak Morning (08:30 AM)</span>
+</div>
+</div>
+<!-- Trip Comparison 3 Options -->
+<div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Option 1: Cheapest -->
+<div class="bg-white rounded-xl p-5 border-2 border-emerald-600/30 relative">
+<div class="absolute -top-3 left-4 bg-[#28745E] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                Cheapest Option
+              </div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="text-lg font-bold text-[#202923]">MTC Bus 23C / 570</span>
+<span class="text-xl font-bold text-[#28745E] font-mono">₹18</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#6D7770] mb-4">
+<span>⏱ 54 mins</span>
+<span>🌱 0.4 kg CO₂</span>
+<span>🚶 350m walk</span>
+</div>
+<p class="text-xs text-[#6D7770] font-body leading-relaxed">
+                Direct ordinary/deluxe service. Lowest expenditure for daily workers &amp; university students.
+              </p>
+</div>
+<!-- Option 2: Fastest -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] relative">
+<div class="absolute -top-3 left-4 bg-[#547F93] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                Fastest Option
+              </div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="text-lg font-bold text-[#202923]">Metro + Feeder Auto</span>
+<span class="text-xl font-bold text-[#202923] font-mono">₹58</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#6D7770] mb-4">
+<span>⏱ 38 mins</span>
+<span>🌱 0.8 kg CO₂</span>
+<span>🚶 150m walk</span>
+</div>
+<p class="text-xs text-[#6D7770] font-body leading-relaxed">
+                CMRL Green Line to Guindy interchange, followed by quick last-mile share auto to TIDEL.
+              </p>
+</div>
+<!-- Option 3: Balanced -->
+<div class="bg-white rounded-xl p-5 border border-[#E4E8E2] relative">
+<div class="absolute -top-3 left-4 bg-[#D49A57] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                Balanced (Recommended)
+              </div>
+<div class="flex justify-between items-baseline mb-2">
+<span class="text-lg font-bold text-[#202923]">Metro + MTC AC-feeder</span>
+<span class="text-xl font-bold text-[#202923] font-mono">₹36</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-[#6D7770] mb-4">
+<span>⏱ 43 mins</span>
+<span>🌱 0.5 kg CO₂</span>
+<span>🚶 220m walk</span>
+</div>
+<p class="text-xs text-[#6D7770] font-body leading-relaxed">
+                Optimised balance between commute expenditure, comfort in Chennai heat, and reliability.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 4. 'FOR TRANSPORT PLANNERS' SECTION        -->
+<!-- (CUMTA Workspace Preview)                  -->
+<!-- ========================================== -->
+<section class="w-full py-20 bg-[#F6F7F4] border-b border-[#E4E8E2]" id="planners">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#174D3D] text-white text-xs font-bold uppercase tracking-wider mb-3">
+              CUMTA Analytics Suite
+            </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[#202923] tracking-tight mb-4">
+              Empowering CUMTA &amp; Urban Mobility Planners
+            </h2>
+<p class="text-base sm:text-lg text-[#6D7770] font-body">
+              A dedicated analytical workspace to identify transport gaps, evaluate ward accessibility, and test operational improvements across the Chennai Metropolitan Area.
+            </p>
+</div>
+<div>
+<a class="inline-flex items-center text-sm font-bold text-[#28745E] hover:text-[#174D3D] transition-colors gap-1 group" href="#">
+<span>Explore Planner Workspace Capabilities</span>
+<span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 3 Feature Preview Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Planner Card 1 -->
+<div class="bg-white rounded-2xl p-7 border border-[#E4E8E2] shadow-xs hover:shadow-lg transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#E9EFE9] text-[#174D3D] font-mono uppercase">Spatial GIS</span>
+<span class="text-xs text-[#6D7770] font-mono">200 Wards</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-3">Ward Accessibility &amp; Coverage</h3>
+<p class="text-sm text-[#6D7770] font-body leading-relaxed mb-6">
+                Granular GCC ward-level spatial data, stop densities, and 500m/800m walking access catchment buffers to identify underserved residential pockets.
+              </p>
+<!-- Mini Analytic Indicator -->
+<div class="bg-[#F6F7F4] rounded-xl p-4 border border-[#E4E8E2] space-y-2 mb-6">
+<div class="flex justify-between text-xs font-bold text-[#202923]">
+<span>Average Ward Walk Accessibility</span>
+<span class="font-mono text-[#28745E]">72.4%</span>
+</div>
+<div class="w-full bg-[#E4E8E2] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#28745E] h-1.5 rounded-full" style="width: 72.4%"></div>
+</div>
+<div class="text-[11px] text-[#6D7770]">Wards in Zone 13 &amp; 14 show largest feeder deficits</div>
+</div>
+</div>
+<div class="pt-4 border-t border-[#E4E8E2] flex items-center text-xs font-semibold text-[#174D3D]">
+<span class="material-symbols-outlined text-sm mr-1.5">layers</span>
+              Layer: GCC Ward Shapefiles + OSM Pedestrian Network
+            </div>
+</div>
+<!-- Planner Card 2 -->
+<div class="bg-white rounded-2xl p-7 border border-[#E4E8E2] shadow-xs hover:shadow-lg transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-sky-50 text-[#547F93] font-mono uppercase">Headway Engine</span>
+<span class="text-xs text-[#6D7770] font-mono">GTFS Feeds</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-3">Frequency &amp; Headway Analysis</h3>
+<p class="text-sm text-[#6D7770] font-body leading-relaxed mb-6">
+                Scheduled timetable evaluations and service density mapping. Contrast peak vs off-peak frequencies across key corridors like GST Road and OMR.
+              </p>
+<!-- Mini Analytic Indicator -->
+<div class="bg-[#F6F7F4] rounded-xl p-4 border border-[#E4E8E2] space-y-2 mb-6">
+<div class="flex justify-between text-xs font-bold text-[#202923]">
+<span>Peak Headway Adherence</span>
+<span class="font-mono text-[#547F93]">84.1%</span>
+</div>
+<div class="w-full bg-[#E4E8E2] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#547F93] h-1.5 rounded-full" style="width: 84.1%"></div>
+</div>
+<div class="text-[11px] text-[#6D7770]">MTC Route 570 frequency: 6-8 mins during 08:00-11:00</div>
+</div>
+</div>
+<div class="pt-4 border-t border-[#E4E8E2] flex items-center text-xs font-semibold text-[#174D3D]">
+<span class="material-symbols-outlined text-sm mr-1.5">schedule</span>
+              Scheduled timetable validations
+            </div>
+</div>
+<!-- Planner Card 3 -->
+<div class="bg-white rounded-2xl p-7 border border-[#E4E8E2] shadow-xs hover:shadow-lg transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-50 text-[#D49A57] font-mono uppercase">Simulation Lab</span>
+<span class="text-xs text-[#6D7770] font-mono">What-If Scenarios</span>
+</div>
+<h3 class="text-xl font-bold text-[#202923] mb-3">Policy &amp; Scenario Testing</h3>
+<p class="text-sm text-[#6D7770] font-body leading-relaxed mb-6">
+                Simulate headway reductions, fleet reallocation, and feeder route additions with instant before-and-after impact metrics on citizen travel time.
+              </p>
+<!-- Mini Analytic Indicator -->
+<div class="bg-[#F6F7F4] rounded-xl p-4 border border-[#E4E8E2] space-y-2 mb-6">
+<div class="flex justify-between text-xs font-bold text-[#202923]">
+<span>Potential Travel Time Reduction</span>
+<span class="font-mono text-[#D49A57]">-18.5%</span>
+</div>
+<div class="w-full bg-[#E4E8E2] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#D49A57] h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<div class="text-[11px] text-[#6D7770]">Tested: 12 new midi-bus feeder loops at Alandur</div>
+</div>
+</div>
+<div class="pt-4 border-t border-[#E4E8E2] flex items-center text-xs font-semibold text-[#174D3D]">
+<span class="material-symbols-outlined text-sm mr-1.5">model_training</span>
+              Predictive accessibility impact reports
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 5. DATA INTEGRITY & METHODOLOGY            -->
+<!-- (Trust, Provenance & Privacy)             -->
+<!-- ========================================== -->
+<section class="w-full py-20 bg-white border-b border-[#E4E8E2]" id="methodology">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<div class="max-w-3xl mb-12">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E9EFE9] text-[#28745E] text-xs font-bold uppercase tracking-wider mb-3">
+            Open Transit Data Governance
+          </div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[#202923] tracking-tight mb-4">
+            Data Integrity, Provenance &amp; Privacy
+          </h2>
+<p class="text-base text-[#6D7770] font-body">
+            MOVEFAIR strictly classifies all calculations so commuters and planners understand the underlying truth of every single number.
+          </p>
+</div>
+<!-- 5 Provenance Principles Badges -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+<div class="p-4 rounded-xl border border-[#E4E8E2] bg-[#F6F7F4]">
+<div class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#174D3D] text-white mb-2 uppercase">Official</div>
+<h4 class="text-sm font-bold text-[#202923] mb-1">Official Tariffs</h4>
+<p class="text-xs text-[#6D7770] font-body">Gazetted MTC stage fares, CMRL distance tables, and Southern Railway tickets.</p>
+</div>
+<div class="p-4 rounded-xl border border-[#E4E8E2] bg-[#F6F7F4]">
+<div class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#547F93] text-white mb-2 uppercase">Scheduled</div>
+<h4 class="text-sm font-bold text-[#202923] mb-1">Scheduled GTFS</h4>
+<p class="text-xs text-[#6D7770] font-body">Published timetable departures and stop sequences validated against CUMTA feeds.</p>
+</div>
+<div class="p-4 rounded-xl border border-[#E4E8E2] bg-[#F6F7F4]">
+<div class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#28745E] text-white mb-2 uppercase">Calculated</div>
+<h4 class="text-sm font-bold text-[#202923] mb-1">Calculated Routes</h4>
+<p class="text-xs text-[#6D7770] font-body">Deterministic multi-modal routing algorithms with real road and walk distances.</p>
+</div>
+<div class="p-4 rounded-xl border border-[#E4E8E2] bg-[#F6F7F4]">
+<div class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#D49A57] text-white mb-2 uppercase">Modelled</div>
+<h4 class="text-sm font-bold text-[#202923] mb-1">Modelled Emissions</h4>
+<p class="text-xs text-[#6D7770] font-body">CO₂ emission factors derived from ARAI emission standards for Indian vehicles.</p>
+</div>
+<div class="p-4 rounded-xl border border-[#E4E8E2] bg-[#F6F7F4]">
+<div class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-700 text-white mb-2 uppercase">User-Entered</div>
+<h4 class="text-sm font-bold text-[#202923] mb-1">User Optional</h4>
+<p class="text-xs text-[#6D7770] font-body">Commute frequency &amp; preferences stored strictly on-device in local session memory.</p>
+</div>
+</div>
+<!-- Privacy & Citations Dual Banner -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Citations -->
+<div class="p-6 rounded-2xl bg-[#E9EFE9]/50 border border-[#d2ddd3]">
+<h4 class="text-base font-bold text-[#174D3D] mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">database</span>
+              Official Citations &amp; Sources
+            </h4>
+<ul class="text-xs text-[#6D7770] font-body space-y-2 leading-relaxed">
+<li>• <strong>CUMTA &amp; GCC:</strong> Chennai Comprehensive Mobility Plan (CMP), 200 Ward boundary GIS shapefiles.</li>
+<li>• <strong>MTC Chennai:</strong> Metropolitan Transport Corporation bus routes, fare stages, and terminal schedules.</li>
+<li>• <strong>CMRL &amp; Southern Railway:</strong> Phase 1 &amp; Phase 2 network alignments and suburban Chennai timetables.</li>
+<li>• <strong>OpenStreetMap:</strong> Road hierarchies, walkable footpaths, and pedestrian crossing infrastructure.</li>
+</ul>
+</div>
+<!-- Privacy Commitment -->
+<div class="p-6 rounded-2xl bg-[#E9EFE9]/50 border border-[#d2ddd3]">
+<h4 class="text-base font-bold text-[#174D3D] mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">shield</span>
+              Strict Citizen Privacy Commitment
+            </h4>
+<p class="text-xs text-[#6D7770] font-body leading-relaxed mb-3">
+              Fairness requires dignity. MOVEFAIR does not mandate salary disclosures to compute affordability. Commute expense estimates are computed transparently based purely on user-selected trip frequencies.
+            </p>
+<div class="flex items-center gap-2 text-xs font-bold text-[#28745E]">
+<span class="material-symbols-outlined text-sm">lock_clock</span>
+<span>No persistent location logs stored without explicit opt-in.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================== -->
+<!-- 6. COMPREHENSIVE FOOTER                    -->
+<!-- ========================================== -->
+<footer class="w-full bg-[#F6F7F4] border-t border-[#E4E8E2] pt-14 pb-8">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<!-- Top Section: Brand & 4 Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-12 border-b border-[#E4E8E2]">
+<!-- Left Brand & Mission -->
+<div class="lg:col-span-2">
+<a aria-label="MOVEFAIR Home" class="flex items-center gap-2.5 mb-4" href="#">
+<div class="w-8 h-8 rounded-full bg-[#174D3D] flex items-center justify-center text-white">
+<svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+<circle cx="12" cy="10" r="3"></circle>
+</svg>
+</div>
+<span class="text-lg font-extrabold tracking-tight text-[#174D3D] uppercase">Movefair</span>
+</a>
+<p class="text-xs text-[#6D7770] font-body leading-relaxed max-w-sm mb-4">
+            Startup Peravai × CUMTA Mobility Challenge, PS7 — Transport Accessibility &amp; Affordability. Benchmarking equity, connectivity, and emissions for the Greater Chennai metropolitan area.
+          </p>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#E9EFE9] border border-[#d2ddd3] text-[11px] font-bold text-[#174D3D]">
+<span>CUMTA Problem Statement 7</span>
+</div>
+</div>
+<!-- Col 1: Product -->
+<div>
+<h4 class="text-xs font-bold uppercase tracking-wider text-[#202923] mb-4">Product</h4>
+<ul class="text-xs space-y-2.5 text-[#6D7770] font-body">
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Home Overview</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#commuters">Explore Chennai</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#how-it-works">Journey Planner</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#commuters">Travel Spending</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#features">Green Commute Meter</a></li>
+</ul>
+</div>
+<!-- Col 2: Planners -->
+<div>
+<h4 class="text-xs font-bold uppercase tracking-wider text-[#202923] mb-4">For Planners</h4>
+<ul class="text-xs space-y-2.5 text-[#6D7770] font-body">
+<li><a class="hover:text-[#174D3D] transition-colors" href="#planners">Ward Overview (200 Wards)</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#planners">Service Analysis</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#planners">Scenario Modeler</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#planners">Catchment Buffers (500m/800m)</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#planners">Headway Heatmaps</a></li>
+</ul>
+</div>
+<!-- Col 3: Resources -->
+<div>
+<h4 class="text-xs font-bold uppercase tracking-wider text-[#202923] mb-4">Resources</h4>
+<ul class="text-xs space-y-2.5 text-[#6D7770] font-body">
+<li><a class="hover:text-[#174D3D] transition-colors" href="#methodology">Data Manifest</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#methodology">GTFS Transit Feeds</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#methodology">Methodology &amp; Standards</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Open API Documentation</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Chennai Ward GIS Exports</a></li>
+</ul>
+</div>
+<!-- Col 4: Governance & Legal -->
+<div>
+<h4 class="text-xs font-bold uppercase tracking-wider text-[#202923] mb-4">Governance &amp; Legal</h4>
+<ul class="text-xs space-y-2.5 text-[#6D7770] font-body">
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Open Data License</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">Help Desk &amp; Feedback</a></li>
+<li><a class="hover:text-[#174D3D] transition-colors" href="#">CUMTA Coordination</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6D7770] font-body">
+<p>© 2025–2026 MOVEFAIR Chennai Urban Mobility Observatory. All rights reserved.</p>
+<div class="flex items-center space-x-6">
+<span>Made for Chennai with open transit data.</span>
+<span>•</span>
+<span class="inline-flex items-center gap-1 text-[#28745E] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            All systems operational
+          </span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
